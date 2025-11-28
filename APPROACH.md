@@ -28,5 +28,5 @@ The extracted details are organized in a structured format using a Pandas DataFr
 e. Displaying the Result
 The table is shown on the Streamlit page, and the user can download it if needed.
 
-4. Conclusion
+3. Conclusion
 The solution provides a simple, automated way to upload a PDF, extract important audit information, organize it into a table, and display it on a web interface.
