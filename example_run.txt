@@ -1,0 +1,13 @@
+Example runs:
+
+1) PDF overlay
+python main.py --input sample.pdf --text "Invoice" --output sample_overlay.pdf
+
+2) Image overlay
+python main.py -i sample.png -t "Total" -o sample_overlay.png
+
+3) Excel copy with red bordered matches
+python main.py -i data.xlsx -t "Amount" -o data_overlay.xlsx
+
+4) Streamlit UI (interactive)
+streamlit run main.py -- --ui
