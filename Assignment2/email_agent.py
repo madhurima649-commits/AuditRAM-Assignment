@@ -3,11 +3,10 @@ import argparse
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from webdriver_manager.chrome import ChromeDriverManager
 
 def send_email(email, password, message):
-    # Open browser
-    driver = webdriver.Chrome(ChromeDriverManager().install())
+    # Use your downloaded ChromeDriver
+    driver = webdriver.Chrome()  # <-- DO NOT ADD ANYTHING HERE
     driver.maximize_window()
     driver.get("https://outlook.live.com/")
     time.sleep(3)
@@ -24,18 +23,18 @@ def send_email(email, password, message):
     driver.find_element(By.NAME, "passwd").send_keys(password + Keys.ENTER)
     time.sleep(3)
 
-    # "Stay signed in?" → click "No"
+    # "Stay signed in?" → No
     try:
         driver.find_element(By.ID, "idBtn_Back").click()
         time.sleep(3)
     except:
         pass
 
-    # Click New mail
+    # New mail
     driver.find_element(By.XPATH, "//button[@aria-label='New mail']").click()
     time.sleep(3)
 
-    # Recipient
+    # To
     driver.find_element(By.XPATH, "//input[@aria-label='To']").send_keys("scittest@auditram.com")
     time.sleep(1)
 
@@ -47,7 +46,7 @@ def send_email(email, password, message):
     driver.find_element(By.XPATH, "//div[@role='textbox']").send_keys(message)
     time.sleep(1)
 
-    # Send email
+    # Send
     driver.find_element(By.XPATH, "//button[@aria-label='Send']").click()
     time.sleep(3)
 
